@@ -1,0 +1,30 @@
+.favoritTitle {
+    font-size: 40px;
+    font-weight: bold;
+    color: yellow;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.favoritHeaderLogo {
+    display: flex;
+    justify-content: center;
+}
+
+.dontPokemon {
+    margin: auto;
+    background-image: url(../../assets/image/dontFavorit.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 50%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: green;
+    border-radius: 8px;
+}

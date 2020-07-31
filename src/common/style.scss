@@ -1,0 +1,54 @@
+.searchSection {
+    background-color: #3bc5f8;
+    padding: 15px;
+    width: 400px;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.searchSectionMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.errorMesage {
+    color: red;
+}
+
+.searchInp {
+    border: 1px solid blue;
+    height: 25px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.searcButton {
+    background-color: yellow;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.MuiTablePagination-actions{
+    display: none !important;
+}
+
+@media(max-width: 440px) {
+    .searchSectionMain {
+        flex-direction: column;
+    }
+    .searchSectionMain * {
+        margin-bottom: 5px;
+    }
+    
+}

@@ -1,0 +1,33 @@
+.imgSection {
+   width: 500px;
+}
+
+.aboutPersonage {
+    width: 100%;   
+}
+
+.aboutHeroes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin-top: 5px;
+    background-color: #3bc5f8;
+}
+
+.aboutPokemonHeader {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.aboutPokemonMainSection {
+    height: 100vh;
+}
+
+.MuiTablePagination-spacer {
+    display: none !important;
+}
