@@ -18,11 +18,12 @@ const useStyles = makeStyles((theme) => ({
 
 const FavoritList = observer(({ PokemonFavorit }) => {
   const [pokemon, setPokemon] = useState([]);
-
-  const classes = useStyles();
+  const [checkLocal, setCheckLocal] = useState([])
+  
 
   useEffect(() => {
     const checkdLocalStorage = localStorage.getItem('favoritId')
+    setCheckLocal(checkdLocalStorage ? JSON.parse(checkdLocalStorage) : [] )
     const favIdActive = checkdLocalStorage ? JSON.parse(localStorage.getItem('favoritId')) : [];
     favIdActive.forEach((element) => {
       PokemonFavorit.getPokemonFavorit(element)
@@ -33,8 +34,8 @@ const FavoritList = observer(({ PokemonFavorit }) => {
   }, []);
 
   
-
-
+console.log(pokemon,'pokemon')
+console.log(checkLocal,'ssssssss')
   return (
     <>
       <div className="favoritHeaderLogo">
@@ -43,10 +44,11 @@ const FavoritList = observer(({ PokemonFavorit }) => {
         {' '}
       </div>
       <div className="favoritTitle">My Favorit</div>
-        {pokemon ? <div className="dontPokemon">you don't have any favorites yet</div> : ''}
+        {pokemon.length ? "":<div className="dontPokemon">you don't have any favorites yet</div> }
       <div className="pokemList">
         {
-        pokemon.length === localStorage.getItem('favoritId').length ? pokemon.map((elem) => (
+          
+        pokemon.length === checkLocal.length ? pokemon.map((elem) => (
           <div key={nanoid()} className="pokemonItems">
             <FavoritItems pokemonName={elem.name} pokemonUrl={elem.sprites.front_default} types={elem.types} id={elem.id} />
           </div>
