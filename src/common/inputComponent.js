@@ -11,7 +11,7 @@ const SearchComponent = () => {
   const handleClickGetSearchPocemonName = () => {
     setErrTog(false);
     if (pocemonName.length > 1) {
-      axios.create({ baseURL: `https://pokeapi.co/api/v2/pokemon/${pocemonName}` }).get()
+      axios.create({ baseURL: `https://pokeapi.co/api/v2/pokemon/${pocemonName.toLowerCase()}` }).get()
         .then((res) => {
           history.push(
             {
@@ -22,6 +22,7 @@ const SearchComponent = () => {
                 type: res.data.types,
                 weight: res.data.weight,
                 height: res.data.height,
+                id: res.data.id
               },
             },
           );

@@ -34,8 +34,6 @@ const FavoritList = observer(({ PokemonFavorit }) => {
   }, []);
 
   
-console.log(pokemon,'pokemon')
-console.log(checkLocal,'ssssssss')
   return (
     <>
       <div className="favoritHeaderLogo">

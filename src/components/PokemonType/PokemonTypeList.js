@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { observer } from 'mobx-react';
 import { makeStyles } from '@material-ui/core/styles';
-import TablePagination from '@material-ui/core/TablePagination';
 import Pagination from '@material-ui/lab/Pagination';
 import request from '../../constans/api';
 import SearchComponent from '../../common/inputComponent';
@@ -25,9 +24,9 @@ const PokemonTypeList = observer((props) => {
   const [pokemon, setPokemon] = useState([]);
   const [page, setPage] = useState(2);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [pocemonSearchName, setPocemonSearchName] = useState([]);
-  const [offsetPage, setOffsetPage] = useState(1);
-  const [favId, setFavId] = useState([]);
+  const [, setPocemonSearchName] = useState([]);
+  const [, setOffsetPage] = useState(1);
+  const [, setFavId] = useState([]);
   const [quantityItems, setQuantityItems] = useState(10);
   const location = useLocation();
 
@@ -49,20 +48,7 @@ const PokemonTypeList = observer((props) => {
     }
   }, []);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage)
-    console.log(page)
-  };
 
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setQuantityItems(event.target.value);
-    const nextPage = +`${page}0` + quantityItems;
-    props.props.getPokemonType(location.state.type)
-      .then((res) => {
-        setPokemon(res.data.pokemon.slice(+`${page}0`, nextPage));
-      });
-  };
 
   const handlePagination = (e, page) => {
     const nextPage = +`${page}0` + quantityItems;

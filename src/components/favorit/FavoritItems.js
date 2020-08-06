@@ -35,6 +35,7 @@ const FavoritItems = ({
               type: res.data.types,
               weight: res.data.weight,
               height: res.data.height,
+              id: res.data.id
             },
           },
         );
@@ -55,6 +56,12 @@ const FavoritItems = ({
       localStorage.setItem('favoritId', JSON.stringify(users));
     }
   };
+
+  const ucFirst = (str) => {
+    if (!str) return str;
+  
+    return str[0].toUpperCase() + str.slice(1);
+  }
   return (
     <div>
       <button
@@ -65,7 +72,7 @@ const FavoritItems = ({
       />
 
       {imgUrl ? <img src={pokemonUrl} alt="pokemon" onClick={handleClick} className="heroesImg" /> : <img src={loader} alt="loader" className="heroesImg" /> }
-      <div className="pokemonName">{pokemonName}</div>
+      <div className="pokemonName">{ucFirst(pokemonName)}</div>
       <div className="pokemontype">
         {
              pokemonType.map((elem) => (

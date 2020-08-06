@@ -22,7 +22,6 @@ const PokemonItems = ({ pokemonName, pokemonUrl }) => {
         setPokemonId(json.id);
         setPokemonType(json.types);
         setImgUrl(json.sprites.front_default);
-        console.log(json)
       });
   }, []);
   const checkedLocal = localStorage.getItem('favoritId')
@@ -40,6 +39,7 @@ const PokemonItems = ({ pokemonName, pokemonUrl }) => {
               type: res.data.types,
               weight: res.data.weight,
               height: res.data.height,
+              id: res.data.id
             },
           },
         );
@@ -60,6 +60,11 @@ const PokemonItems = ({ pokemonName, pokemonUrl }) => {
       localStorage.setItem('favoritId', JSON.stringify(users));
     }
   };
+  const ucFirst = (str) => {
+    if (!str) return str;
+  
+    return str[0].toUpperCase() + str.slice(1);
+  }
   return (
     <div>
       <button
@@ -70,7 +75,7 @@ const PokemonItems = ({ pokemonName, pokemonUrl }) => {
       />
 
       {imgUrl ? <img src={imgUrl} alt="pokemon" onClick={handleClick} className="heroesImg" /> : <img src={loader} alt="loader" className="heroesImg" /> }
-      <div className="pokemonName">{pokemonName}</div>
+      <div className="pokemonName">{ucFirst(pokemonName)}</div>
       <div className="pokemontype">
         {
              pokemonType.map((elem) => (

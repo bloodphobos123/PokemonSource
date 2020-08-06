@@ -47,7 +47,6 @@ const PokemonList = observer((props) => {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    console.log(event.target.value)
     setRowsPerPage(parseInt(event.target.value, 10));
     props.props.getPokemon(offsetPage, event.target.value)
       .then((res) => setPokemon(res.data.results));

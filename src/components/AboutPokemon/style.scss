@@ -9,6 +9,7 @@
 .aboutHeroes {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     width: 90%;
     margin: auto;
@@ -16,6 +17,7 @@
     border-radius: 8px;
     margin-top: 5px;
     background-color: #3bc5f8;
+    position: relative;
 }
 
 .aboutPokemonHeader {
@@ -30,4 +32,39 @@
 
 .MuiTablePagination-spacer {
     display: none !important;
+}
+
+
+.heroesName {
+    font-size: 40px;
+    font-weight: bold;
+    margin: auto;
+    width: 300px;
+    color: brown;
+    position: absolute;
+    top: 10px;
+}
+
+.pokemonInfoAbout {
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin-bottom: 15px;
+    color: brown;
+}
+
+.aboutInfoTitle {
+    color: green;
+    text-decoration: dashed;
+    border-bottom: 1px solid black;
+}
+
+
+@media(max-width: 400px) {
+    .heroesName {
+        display: flex;
+        justify-content: center;
+    }
 }

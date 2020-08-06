@@ -36,6 +36,7 @@ const PokemonTypeItems = ({ pokemonName, pokemonUrl }) => {
               type: res.data.types,
               weight: res.data.weight,
               height: res.data.height,
+              id: res.data.id
             },
           },
         );
@@ -56,6 +57,11 @@ const PokemonTypeItems = ({ pokemonName, pokemonUrl }) => {
       localStorage.setItem('favoritId', JSON.stringify(users));
     }
   };
+  const ucFirst = (str) => {
+    if (!str) return str;
+  
+    return str[0].toUpperCase() + str.slice(1);
+  }
   return (
     <div>
       <button
@@ -66,7 +72,7 @@ const PokemonTypeItems = ({ pokemonName, pokemonUrl }) => {
       />
       {imgUrl ? <img src={imgUrl} alt="pokemon" onClick={handleClick} className="heroesImg" /> : <img src={loader} alt="loader" className="heroesImg" /> }
 
-      <div className="pokemonName">{pokemonName}</div>
+      <div className="pokemonName">{ucFirst(pokemonName)}</div>
       <div className="pokemontype">
         {
              pokemonType.map((elem) => (
